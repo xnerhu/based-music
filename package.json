@@ -1,7 +1,7 @@
 {
-  "name": "music-likeability",
+  "name": "based-music",
   "private": true,
-  "homepage": "https://github.com/xnerhu/music-likeability",
+  "homepage": "https://github.com/xnerhu/based-music",
   "scripts": {
     "dev": "lerna exec yarn dev --parallel --scope=@core/*",
     "watch:fetch": "lerna exec yarn watch --scope=@steps/0-fetch",
