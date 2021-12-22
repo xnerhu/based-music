@@ -5,7 +5,8 @@
     "dev": "tsc --watch",
     "build": "tsc",
     "watch": "nodemon ./build/index.js",
-    "start": "node ./build/index.js"
+    "start": "node ./build/index.js",
+    "spektrogram": "python ./spektrogram/index.py"
   },
   "devDependencies": {
     "@types/fluent-ffmpeg": "^2.1.20",
