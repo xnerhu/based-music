@@ -1,4 +1,4 @@
-import { mkdir, readFile, stat } from "fs/promises";
+import { mkdir, readdir, readFile, stat } from "fs/promises";
 
 export const pathExists = async (path: string) => {
   try {
@@ -27,4 +27,14 @@ export const readLines = async (path: string) => {
 
 export const normalizeFilename = (filename: string) => {
   return filename.replace(/[/\\?%*:|"<>]/g, "-");
+};
+
+export const isFolder = async (path: string) => {
+  return await stat(path).then((r) => r.isDirectory());
+};
+
+export const getFiles = async (dir: string) => {
+  const all = await readdir(dir, { withFileTypes: true });
+
+  return all.filter((file) => !file.isDirectory()).map((r) => r.name);
 };

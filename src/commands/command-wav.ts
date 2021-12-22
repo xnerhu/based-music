@@ -4,12 +4,12 @@ import { basename, extname, resolve } from "path";
 import Progressbar from "progress";
 
 import { convertAudio } from "../audio";
-import { ensureDir, Queue, readLines } from "../utils";
+import { ensureDir, getFiles, parseAllToNumber, Queue } from "../utils";
 
 export interface CommandConvertToWavOptions {
   path: string;
   out: string;
-  threads?: number;
+  threads: number;
 }
 
 export const commandConvertToWav = createCommand("convert")
@@ -17,10 +17,12 @@ export const commandConvertToWav = createCommand("convert")
   .requiredOption("-p, --path <string>", "path to directory")
   .requiredOption("-o, --out <string>", "where to save songs")
   .option("-t, --threads <number>", "number of threads", "1")
-  .action(async ({ path, out, threads }: CommandConvertToWavOptions) => {
+  .action(async ({ path, out, ...opts }: CommandConvertToWavOptions) => {
+    const { threads } = parseAllToNumber(opts);
+
     await ensureDir(out);
 
-    const files = await readdir(path);
+    const files = await getFiles(path);
 
     const bar = new Progressbar("%s [:bar] :percent :etas", {
       complete: "=",
