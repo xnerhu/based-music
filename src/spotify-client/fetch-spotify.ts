@@ -67,7 +67,7 @@ class Client {
       complete: "=",
       incomplete: " ",
       total: ids.length,
-      width: 60,
+      width: 100,
     });
 
     this.bar.render();
