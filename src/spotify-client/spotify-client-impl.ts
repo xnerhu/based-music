@@ -4,7 +4,6 @@ import SpotifyAPI from "spotify-web-api-node";
 import ytdl from "ytdl-core";
 import ffmpeg from "fluent-ffmpeg";
 import { unlink } from "fs/promises";
-import { normalizeFilename } from "@core/common";
 
 import { YTClient } from "../yt-client/yt-client";
 import { YTClientImpl } from "../yt-client/yt-client-impl";
@@ -13,6 +12,7 @@ import {
   SpotifyClientOptions,
   SpotifyDownloadOptions,
 } from "./spotify-client";
+import { normalizeFilename } from "../utils";
 
 export class SpotifyClientImpl implements SpotifyClient {
   private readonly api: SpotifyAPI;

@@ -1,11 +1,11 @@
 {
   "name": "based-music",
-  "private": true,
   "homepage": "https://github.com/xnerhu/based-music",
   "scripts": {
-    "dev": "lerna exec yarn dev --parallel --scope=@core/*",
-    "watch:fetch": "lerna exec yarn watch --scope=@steps/0-fetch",
-    "step:wave": "lerna exec yarn start --scope=@steps/1-wave"
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "watch": "nodemon ./build/index.js",
+    "start": "node ./build/index.js"
   },
   "devDependencies": {
     "@types/fluent-ffmpeg": "^2.1.20",
@@ -48,8 +48,5 @@
     "winston": "^3.3.3",
     "youtube-music-api": "^1.0.6",
     "ytdl-core": "^4.9.2"
-  },
-  "workspaces": [
-    "core/*"
-  ]
+  }
 }

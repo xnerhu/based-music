@@ -24,14 +24,10 @@
     "lib": ["esnext"],
     "moduleResolution": "node",
 
-    "baseUrl": ".",
+    "rootDir": "src",
 
-    "rootDirs": [".", "./core"],
-
-    "paths": {
-      "@core/*": ["./core/*/build"]
-    }
+    "outDir": "build"
   },
-  "include": ["core"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }

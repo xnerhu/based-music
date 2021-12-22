@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import { Command } from "commander";
 
-import { commandFetchFromText } from "./commands/text";
+import { commandFetchFromText } from "./commands";
 
 const program = new Command();
 

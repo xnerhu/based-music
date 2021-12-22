@@ -1,6 +1,6 @@
-import { Queue } from "@core/common";
 import Progressbar from "progress";
 
+import { Queue } from "../utils";
 import { AccessToken, getAccessToken } from "./access-token";
 import { SpotifyClient } from "./spotify-client";
 import { SpotifyClientImpl } from "./spotify-client-impl";

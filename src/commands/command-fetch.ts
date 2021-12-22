@@ -1,12 +1,10 @@
 import { createCommand } from "commander";
-import { readLines, ensureDir } from "@core/common";
 import { resolve } from "path";
 
-import { getConfig } from "../../config";
-import { getAccessToken } from "../../spotify-client/access-token";
-import { fetchSpotifyTracks } from "../../spotify-client/fetch-spotify";
-import { SpotifyClientImpl } from "../../spotify-client/spotify-client-impl";
-import { normalizeSpotifyId } from "../../spotify-client/spotify-utils";
+import { getConfig } from "../config";
+import { fetchSpotifyTracks } from "../spotify-client/fetch-spotify";
+import { normalizeSpotifyId } from "../spotify-client/spotify-utils";
+import { ensureDir, readLines } from "../utils";
 
 export interface CommandTextOptions {
   path: string;
@@ -14,7 +12,7 @@ export interface CommandTextOptions {
   threads?: number;
 }
 
-export const commandFetchFromText = createCommand("text")
+export const commandFetchFromText = createCommand("fetch")
   .description("downloads songs from spotify that are listed in a file")
   .requiredOption("-p, --path <string>", "path to file")
   .requiredOption("-o, --out <string>", "where to save songs")
