@@ -6,7 +6,8 @@
     "build": "tsc",
     "watch": "nodemon ./build/index.js",
     "start": "node ./build/index.js",
-    "spektrogram": "python ./spektrogram/index.py"
+    "spektrogram": "python ./spektrogram/index.py",
+    "train": "python ./model/index.py"
   },
   "devDependencies": {
     "@types/fluent-ffmpeg": "^2.1.20",
